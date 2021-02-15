@@ -5,5 +5,7 @@ public class Main {
     {
         PacketSender packetSender = new PacketSender();
         PacketReceiver packetReceiver = new PacketReceiver();
+        Server.getAddrress();
+        System.out.println(Server.address);
     }
 }
