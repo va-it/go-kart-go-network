@@ -10,14 +10,10 @@ import java.net.UnknownHostException;
 
 public class PacketSender {
 
-    static String messageToSend;
-    static InetAddress receiverAddress;
-    static int receiverPort;
-
     static DatagramSocket socket;
     static DatagramPacket packet;
 
-    private static void sendPacket()
+    private static void sendPacket(String messageToSend, InetAddress receiverAddress, int receiverPort)
     {
         try {
             // Create a message to send using a UDP packet
