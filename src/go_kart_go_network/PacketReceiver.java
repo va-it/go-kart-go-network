@@ -9,14 +9,13 @@ import java.net.UnknownHostException;
 public class PacketReceiver {
 
     static DatagramPacket packet;
-    static DatagramSocket socket;
 
     static String senderAddress;
     static int senderPort;
 
     static String messageReceived;
 
-    public static String receivePacket() {
+    public static String receivePacket(DatagramSocket socket) {
 
         try {
             // Create a datagram packet containing the byte array
