@@ -1,6 +1,9 @@
 package go_kart_go_network;
 
 public class Messages {
+    public static String establishConnection = "establish_connection";
+    public static String connectionSuccessful = "connection_successful";
+    public static String getPlayerNumber = "get_player_number";
     public static String startRace = "start_race";
     public static String stopRace = "stop_race";
 
