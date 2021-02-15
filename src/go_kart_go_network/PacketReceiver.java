@@ -1,4 +1,4 @@
-package network;
+package go_kart_go_network;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -16,7 +16,7 @@ public class PacketReceiver {
 
     static String messageReceived;
 
-    private static String receivePacket() {
+    public static String receivePacket() {
 
         try {
             // Create a datagram packet containing the byte array

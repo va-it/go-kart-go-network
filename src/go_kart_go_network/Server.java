@@ -1,4 +1,4 @@
-package network;
+package go_kart_go_network;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

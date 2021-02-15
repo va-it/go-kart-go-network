@@ -1,4 +1,4 @@
-package network;
+package go_kart_go_network;
 
 public class Main {
     public static void main (String args[])

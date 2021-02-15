@@ -1,4 +1,4 @@
-package network;
+package go_kart_go_network;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -13,7 +13,7 @@ public class PacketSender {
     static DatagramSocket socket;
     static DatagramPacket packet;
 
-    private static void sendPacket(String messageToSend, InetAddress receiverAddress, int receiverPort)
+    public static void sendPacket(String messageToSend, InetAddress receiverAddress, int receiverPort)
     {
         try {
             // Create a message to send using a UDP packet
