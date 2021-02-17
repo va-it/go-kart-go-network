@@ -53,16 +53,14 @@ public class ServerCommunicationSocket {
         }
     }
 
-    public DataOutputStream getOutputStream() {
-        return outputStream;
-    }
-
-    public BufferedReader getInputStream() {
-        return inputStream;
-    }
-
-    public ObjectInput getInputObject() {
-        return inputObject;
+    public String getMessage() {
+        String message = null;
+        try {
+            message = inputStream.readLine();
+        } catch (IOException e) {
+            System.err.println("I/O error");
+        }
+        return message;
     }
 
     public void closeCommunication() {

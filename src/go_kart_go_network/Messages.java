@@ -6,6 +6,8 @@ public class Messages {
     public static String getPlayerNumber = "get_player_number";
     public static String startRace = "start_race";
     public static String stopRace = "stop_race";
+    public static String closeConnection = "close_connection";
+
 
     public static String getOpponentIndex(int player) {
         return "get_player_" + player + "_index;";
