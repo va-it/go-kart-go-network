@@ -1,19 +1,24 @@
 package go_kart_go_network;
 
 import java.net.InetAddress;
-import java.net.UnknownHostException;
 
 public class Server {
-    public static int port = 2000;
+    public static int port;
     public static InetAddress address;
 
-    public static void getAddrress() {
-        try {
-            address = InetAddress.getLocalHost();
-        }
-        catch( UnknownHostException e )
-        {
-            System.err.println ("Can't find host");
-        }
+    public static InetAddress getAddrress() {
+        return Server.address;
+    }
+
+    public static void setAddress(InetAddress address) {
+        Server.address = address;
+    }
+
+    public static int getPort() {
+        return port;
+    }
+
+    public static void setPort(int port) {
+        Server.port = port;
     }
 }

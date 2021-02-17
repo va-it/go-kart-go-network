@@ -9,7 +9,7 @@ public class CommunicationSocket {
 
     public CommunicationSocket() {
         try {
-            socket = new DatagramSocket();
+            socket = new DatagramSocket(); // bind socket to any available port
         } catch (SocketException e) {
             System.out.println("Error: cannot create communication socket");
         }
