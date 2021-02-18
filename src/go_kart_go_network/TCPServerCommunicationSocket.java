@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class ServerCommunicationSocket {
+public class TCPServerCommunicationSocket {
 
     ServerSocket socket = null;
     Socket clientSocket = null;
@@ -17,7 +17,7 @@ public class ServerCommunicationSocket {
     // Declare an output stream to client
     private DataOutputStream outputStream;
 
-    public ServerCommunicationSocket() {
+    public TCPServerCommunicationSocket() {
         // Try to open a server socket on port 5000
         try {
             socket = new ServerSocket(ServerDetails.port);
@@ -29,6 +29,7 @@ public class ServerCommunicationSocket {
     public void listen() {
         try {
             clientSocket = socket.accept();
+            openInputOutputChannels();
         } catch (IOException e) {
             System.err.println("I/O error");
         }
@@ -79,5 +80,9 @@ public class ServerCommunicationSocket {
         } catch (IOException e) {
             System.err.println("I/O error");
         }
+    }
+
+    public int returnClientPort() {
+        return clientSocket.getPort();
     }
 }

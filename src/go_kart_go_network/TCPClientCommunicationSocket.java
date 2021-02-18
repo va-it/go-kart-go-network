@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class ClientCommunicationSocket {
+public class TCPClientCommunicationSocket {
     // Declare client socket
     Socket clientSocket = null;
 
@@ -15,7 +15,7 @@ public class ClientCommunicationSocket {
 
     ObjectOutput output = null;
 
-    public ClientCommunicationSocket() {
+    public TCPClientCommunicationSocket() {
         try {
             clientSocket = new Socket(ServerDetails.hostName, ServerDetails.port);
 
@@ -52,5 +52,15 @@ public class ClientCommunicationSocket {
         } catch (IOException e) {
             System.err.println("IOException:  " + e);
         }
+    }
+
+    public String getMessage() {
+        String message = null;
+        try {
+            message = inputStream.readLine();
+        } catch (IOException e) {
+            System.err.println("I/O error");
+        }
+        return message;
     }
 }

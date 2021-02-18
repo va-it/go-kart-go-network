@@ -8,14 +8,14 @@ public class Messages {
     public static String stopRace = "stop_race";
     public static String closeConnection = "close_connection";
 
-
     public static String getOpponentIndex(int player) {
-        return "get_player_" + player + "_index;";
+        return "get_player_" + player + "_index";
+    }
+    public static String getOpponentSpeed(int player) {
+        return  "get_player_" + player + "_speed";
     }
 
-    public static String getOpponentSpeed(int player) {
-        return  "get_player_" + player + "_speed;";
-    }
+    public static String returnPlayerNumber(int player) { return String.valueOf(player); }
 
     public static String kartInfo(int player, int speed, int index) {
         return "player:" + player + ";speed:" + speed + ";index:" + index + ";";
