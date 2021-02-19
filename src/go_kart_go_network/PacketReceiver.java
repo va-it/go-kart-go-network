@@ -4,16 +4,18 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 public class PacketReceiver {
 
-    static DatagramPacket packet;
+    public static DatagramPacket packet;
 
-    static String senderAddress;
-    static int senderPort;
+    public static String senderAddress;
+    public static InetAddress senderInetAddress;
+    public static int senderPort;
 
-    static String messageReceived;
+    public static String messageReceived;
 
     public static String receivePacket(DatagramSocket socket) {
 
@@ -23,6 +25,7 @@ public class PacketReceiver {
 
             socket.receive( packet ); // app will listen and wait
 
+            senderInetAddress = packet.getAddress();
             senderAddress = packet.getAddress().getHostAddress();
             senderPort = packet.getPort();
 

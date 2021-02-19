@@ -1,8 +1,6 @@
 package go_kart_go_network;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
+import java.io.*;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -14,8 +12,7 @@ public class PacketSender {
 
     public static void sendPacket(
             String messageToSend, InetAddress receiverAddress, int receiverPort, DatagramSocket socket
-    )
-    {
+    ) {
         try {
             // Create a message to send using a UDP packet
             ByteArrayOutputStream bytesOut = new ByteArrayOutputStream();
