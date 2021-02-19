@@ -7,6 +7,8 @@ public class Messages {
     public static String startRace = "start_race";
     public static String stopRace = "stop_race";
     public static String closeConnection = "close_connection";
+    public static String sendingKartInfo = "sending_kart_info";
+    public static String kartInfoReceived = "kart_info_received";
 
     public static String getOpponentIndex(int player) {
         return "get_player_" + player + "_index";
@@ -16,8 +18,4 @@ public class Messages {
     }
 
     public static String returnPlayerNumber(int player) { return String.valueOf(player); }
-
-    public static String kartInfo(int player, int speed, int index) {
-        return "player:" + player + ";speed:" + speed + ";index:" + index + ";";
-    }
 }

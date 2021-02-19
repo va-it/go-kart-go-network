@@ -54,6 +54,15 @@ public class TCPClientCommunicationSocket {
         }
     }
 
+    public void sendKart(Object kart) {
+        try {
+            output.writeObject(kart);
+            output.flush();
+        } catch (IOException e) {
+            System.err.println("IOException:  " + e);
+        }
+    }
+
     public String getMessage() {
         String message = null;
         try {
