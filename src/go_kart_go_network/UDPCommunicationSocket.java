@@ -21,4 +21,12 @@ public class UDPCommunicationSocket {
             System.out.println("Error: cannot create communication socket");
         }
     }
+
+    public String getMessage() {
+        return PacketReceiver.receivePacket(socket);
+    }
+
+    public void respond(String message, InetAddress clientAddress, int clientPort) {
+        PacketSender.sendPacket(message, clientAddress, clientPort, socket);
+    }
 }
