@@ -5,7 +5,7 @@ import java.net.UnknownHostException;
 
 public class ServerDetails {
     public static int port = 2000;
-    public static String hostName = "localhost";
+    public static String hostName;
     private static InetAddress address;
 
     public static InetAddress getAddress() {

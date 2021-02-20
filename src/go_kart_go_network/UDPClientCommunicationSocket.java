@@ -9,7 +9,7 @@ public class UDPClientCommunicationSocket {
     public DatagramSocket socket;
 
     public UDPClientCommunicationSocket() {
-        udpCommunicationSocket = new UDPCommunicationSocket();
+        udpCommunicationSocket = new UDPCommunicationSocket(false);
         socket = udpCommunicationSocket.socket;
     }
 

@@ -16,10 +16,8 @@ public class PacketReceiver {
     public InetAddress senderInetAddress;
     public int senderPort;
 
-    public String messageReceived;
-    public Object objectReceived;
-
     public String receivePacket(DatagramSocket socket) {
+        String messageReceived = "";
 
         try {
             // Create a datagram packet containing the byte array
@@ -64,6 +62,8 @@ public class PacketReceiver {
 
 
     public Object receiveObject(DatagramSocket socket) {
+
+        Object objectReceived = null;
 
         try {
             // Create a datagram packet containing the byte array
