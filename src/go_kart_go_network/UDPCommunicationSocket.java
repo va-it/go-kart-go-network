@@ -22,24 +22,29 @@ public class UDPCommunicationSocket {
                 port = socket.getLocalPort();
                 address = socket.getInetAddress();
             }
+            // this in theory allows to store the sender port and address
             packetReceiver = new PacketReceiver();
         } catch (SocketException e) {
             System.out.println("Error: cannot create communication socket");
         }
     }
 
+    // used by both client and server
     public String getMessage() {
         return packetReceiver.receivePacket(socket);
     }
 
+    // used by server
     public void sendMessage(String message) {
         PacketSender.sendPacket(message, packetReceiver.senderInetAddress, packetReceiver.senderPort, socket);
     }
 
+    // used by client
     public void sendObject(Object object, InetAddress recipientAddress, int recipientPort) {
         PacketSender.sendPacketWithObject(object, recipientAddress, recipientPort, socket);
     }
 
+    // used by server
     public Object getObject() {
         return packetReceiver.receiveObject(socket);
     }

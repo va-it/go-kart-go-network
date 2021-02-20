@@ -13,7 +13,15 @@ public class UDPClientCommunicationSocket {
         socket = udpCommunicationSocket.socket;
     }
 
-    public void sendKart(Object kart, InetAddress recipientAddress, int recipientPort) {
-        udpCommunicationSocket.sendObject(kart, recipientAddress, recipientPort);
+    public void sendKart(Object kart) {
+        udpCommunicationSocket.sendObject(kart, ServerDetails.getAddress(), ServerDetails.port);
+    }
+
+    public void sendMessage(String message) {
+        PacketSender.sendPacket(message, ServerDetails.getAddress(), ServerDetails.port, socket);
+    }
+
+    public String getMessage() {
+        return udpCommunicationSocket.getMessage();
     }
 }
