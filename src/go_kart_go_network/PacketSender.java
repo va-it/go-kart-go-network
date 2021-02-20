@@ -15,12 +15,12 @@ public class PacketSender {
     ) {
         try {
             // Create a message to send using a UDP packet
-            ByteArrayOutputStream bytesOut = new ByteArrayOutputStream();
-            PrintStream pout = new PrintStream( bytesOut );
-            pout.print(messageToSend);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            PrintStream printStream = new PrintStream( byteArrayOutputStream );
+            printStream.print(messageToSend);
 
             // Get contents of message as an array of bytes
-            byte[] bytesArray = bytesOut.toByteArray();
+            byte[] bytesArray = byteArrayOutputStream.toByteArray();
 
             // Create a datagram packet containing the byte array
             packet = new DatagramPacket( bytesArray, bytesArray.length );
@@ -49,13 +49,13 @@ public class PacketSender {
     ) {
         try {
             // Serialize to a byte array
-            ByteArrayOutputStream bytesOut = new ByteArrayOutputStream();
-            ObjectOutput objectOutput = new ObjectOutputStream(bytesOut);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            ObjectOutput objectOutput = new ObjectOutputStream(byteArrayOutputStream);
             objectOutput.writeObject(objectToSend);
             objectOutput.close();
 
             // Get contents of message as an array of bytes
-            byte[] bytesArray = bytesOut.toByteArray();
+            byte[] bytesArray = byteArrayOutputStream.toByteArray();
 
             // Create a datagram packet containing the byte array
             packet = new DatagramPacket( bytesArray, bytesArray.length );

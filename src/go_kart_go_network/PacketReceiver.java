@@ -29,7 +29,7 @@ public class PacketReceiver {
             senderAddress = packet.getAddress().getHostAddress();
             senderPort = packet.getPort();
 
-            System.out.println ("Packet received from: " + senderAddress + ":" + senderPort + "\n");
+            System.out.println ("Message received from: " + senderAddress + ":" + senderPort + "\n");
 
             ByteArrayInputStream bytesIn = new ByteArrayInputStream( packet.getData() );
 
@@ -75,7 +75,7 @@ public class PacketReceiver {
             senderAddress = packet.getAddress().getHostAddress();
             senderPort = packet.getPort();
 
-            System.out.println ("Packet received from: " + senderAddress + ":" + senderPort + "\n");
+            System.out.println ("Object received from: " + senderAddress + ":" + senderPort + "\n");
 
             ObjectInputStream objectInputStream = new ObjectInputStream(new ByteArrayInputStream(packet.getData()));
             return objectInputStream.readObject();

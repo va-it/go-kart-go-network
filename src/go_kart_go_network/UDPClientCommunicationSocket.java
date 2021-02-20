@@ -1,7 +1,6 @@
 package go_kart_go_network;
 
 import java.net.DatagramSocket;
-import java.net.InetAddress;
 
 public class UDPClientCommunicationSocket {
 
