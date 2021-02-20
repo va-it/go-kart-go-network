@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class TCPServerCommunicationSocket {
+public class TCPCommunicationSocket {
 
     ServerSocket socket = null;
     Socket clientSocket = null;
@@ -17,7 +17,7 @@ public class TCPServerCommunicationSocket {
     // Declare an output stream to client
     private DataOutputStream outputStream;
 
-    public TCPServerCommunicationSocket() {
+    public TCPCommunicationSocket() {
         // Try to open a server socket on port 5000
         try {
             socket = new ServerSocket(ServerDetails.port);
@@ -64,17 +64,17 @@ public class TCPServerCommunicationSocket {
         return message;
     }
 
-    public Object getKart() {
-        Object object = null;
-        try {
-            object = inputObject.readObject();
-        } catch (IOException e) {
-            System.err.println("I/O error");
-        } catch (ClassNotFoundException e) {
-            // do something
-        }
-        return object;
-    }
+//    public Object getKart() {
+//        Object object = null;
+//        try {
+//            object = inputObject.readObject();
+//        } catch (IOException e) {
+//            System.err.println("I/O error");
+//        } catch (ClassNotFoundException e) {
+//            // do something
+//        }
+//        return object;
+//    }
 
     public void closeCommunication() {
         try {
@@ -86,7 +86,7 @@ public class TCPServerCommunicationSocket {
         }
     }
 
-    public void respond(String message) {
+    public void sendMessage(String message) {
         try {
             outputStream.writeBytes(message + "\n");
         } catch (IOException e) {

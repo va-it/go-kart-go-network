@@ -9,24 +9,32 @@ public class UDPCommunicationSocket {
     public DatagramSocket socket;
     public int port;
     public InetAddress address;
+    public PacketReceiver packetReceiver;
 
     public UDPCommunicationSocket() {
         try {
             socket = new DatagramSocket(); // bind socket to any available port
-
             port = socket.getLocalPort();
             address = socket.getInetAddress();
-
+            packetReceiver = new PacketReceiver();
         } catch (SocketException e) {
             System.out.println("Error: cannot create communication socket");
         }
     }
 
     public String getMessage() {
-        return PacketReceiver.receivePacket(socket);
+        return packetReceiver.receivePacket(socket);
     }
 
-    public void respond(String message, InetAddress clientAddress, int clientPort) {
-        PacketSender.sendPacket(message, clientAddress, clientPort, socket);
+    public void sendMessage(String message) {
+        PacketSender.sendPacket(message, packetReceiver.senderInetAddress, packetReceiver.senderPort, socket);
+    }
+
+    public void sendObject(Object object, InetAddress recipientAddress, int recipientPort) {
+        PacketSender.sendPacketWithObject(object, recipientAddress, recipientPort, socket);
+    }
+
+    public Object getObject() {
+        return packetReceiver.receiveObject(socket);
     }
 }
