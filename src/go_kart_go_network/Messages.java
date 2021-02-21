@@ -10,7 +10,6 @@ public class Messages {
     public static final String confirmRaceStopped = "race_stopped";
     public static final String closeConnection = "close_connection";
     public static final String sendingKartInfo = "sending_kart_info";
-    public static final String kartInfoReceived = "kart_info_received";
     public static final String getOpponentIndex = "get_opponent_index";
     public static final String getOpponentSpeed = "get_opponent_speed";
 
