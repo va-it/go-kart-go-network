@@ -15,26 +15,14 @@ public class TCPServer
     DataOutputStream outputStream;
     ObjectInput input;
 
-    public TCPServer()
-    {
-        // Try to open a server socket on port 5000
-        try
-        {
-            service = new ServerSocket(ServerDetails.port);
-        }
-        catch (IOException e)
-        {
-            System.out.println(e);
-        }
+    public TCPServer(Socket socket) {
+        this.server = socket;
     }
 
-    public void listen() {
-        // Create a socket object from the ServerSocket to listen and accept
-        // connections. Open input and output streams
+    public Socket OpenInputOutputStreams() {
+        // Open input and output streams
         try
         {
-            server = service.accept();
-
             inputStream = new BufferedReader(
                     new InputStreamReader(
                             server.getInputStream()
@@ -54,14 +42,13 @@ public class TCPServer
         {
             System.out.println(e);
         }
+
+        return server;
     }
 
     public String getRequest() {
         try {
             requestFromClient = inputStream.readLine();
-//            if ((requestFromClient = inputStream.readLine()) != null) {
-//                outputStream.writeBytes(requestFromClient + "\n");
-//            }
         } catch (IOException e){
             System.err.println(e);
         }
