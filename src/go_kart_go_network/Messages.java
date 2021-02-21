@@ -4,6 +4,8 @@ public class Messages {
     public static final String establishConnection = "establish_connection";
     public static final String connectionSuccessful = "connection_successful";
     public static final String getPlayerNumber = "get_player_number";
+
+    public static final String ready = "ready";
     public static final String startRace = "start_race";
     public static final String confirmRaceStarted = "race_started";
     public static final String stopRace = "stop_race";
