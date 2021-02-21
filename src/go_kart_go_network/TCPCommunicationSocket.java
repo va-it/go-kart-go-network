@@ -64,17 +64,17 @@ public class TCPCommunicationSocket {
         return message;
     }
 
-//    public Object getKart() {
-//        Object object = null;
-//        try {
-//            object = inputObject.readObject();
-//        } catch (IOException e) {
-//            System.err.println("I/O error");
-//        } catch (ClassNotFoundException e) {
-//            // do something
-//        }
-//        return object;
-//    }
+    public Object getKart() {
+        Object object = null;
+        try {
+            object = inputObject.readObject();
+        } catch (IOException e) {
+            System.err.println("I/O error");
+        } catch (ClassNotFoundException e) {
+            // do something
+        }
+        return object;
+    }
 
     public void closeCommunication() {
         try {
@@ -92,9 +92,5 @@ public class TCPCommunicationSocket {
         } catch (IOException e) {
             System.err.println("I/O error");
         }
-    }
-
-    public int returnClientPort() {
-        return clientSocket.getPort();
     }
 }
