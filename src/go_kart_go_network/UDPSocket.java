@@ -4,14 +4,14 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
 
-public class UDPCommunicationSocket {
+public class UDPSocket {
 
     public DatagramSocket socket;
     public int port;
     public InetAddress address;
     public PacketReceiver packetReceiver;
 
-    public UDPCommunicationSocket(boolean server) {
+    public UDPSocket(boolean server) {
         try {
             if (server) {
                 socket = new DatagramSocket(ServerDetails.port);
