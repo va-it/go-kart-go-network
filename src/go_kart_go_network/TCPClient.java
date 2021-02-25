@@ -35,7 +35,7 @@ public class TCPClient
             try {
                 outputStream.writeBytes( request + "\n" );
             } catch (IOException e) {
-                System.err.println(e);
+                System.err.println("Send request error: " + e);
             }
         }
     }
@@ -44,7 +44,7 @@ public class TCPClient
         try {
             return inputStream.readLine();
         } catch (IOException e){
-            System.err.println(e);
+            System.err.println("Get response error: " + e);
         }
         return "";
     }

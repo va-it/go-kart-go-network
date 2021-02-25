@@ -34,9 +34,9 @@ public class UDPSocket {
         return packetReceiver.receivePacket(socket);
     }
 
-    // used by server
-    public void sendMessage(String message) {
-        PacketSender.sendPacket(message, packetReceiver.senderInetAddress, packetReceiver.senderPort, socket);
+    // used by both client and server
+    public void sendMessage(String message, InetAddress recipientAddress, int recipientPort) {
+        PacketSender.sendPacket(message, recipientAddress, recipientPort, socket);
     }
 
     // used by client

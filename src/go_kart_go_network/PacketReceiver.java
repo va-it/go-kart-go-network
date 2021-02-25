@@ -25,11 +25,15 @@ public class PacketReceiver {
 
             socket.receive( packet ); // app will listen and wait
 
-            senderInetAddress = packet.getAddress();
-            senderAddress = packet.getAddress().getHostAddress();
-            senderPort = packet.getPort();
+//            try {
+//                senderInetAddress = packet.getAddress();
+//                senderAddress = packet.getAddress().getHostAddress();
+//                senderPort = packet.getPort();
+//            } catch (NullPointerException e) {
+//                System.err.println("Exception: " + e);
+//            }
 
-            System.out.println ("Message received from: " + senderAddress + ":" + senderPort + "\n");
+            // System.out.println ("Message received from: " + senderAddress + ":" + senderPort + "\n");
 
             ByteArrayInputStream bytesIn = new ByteArrayInputStream( packet.getData() );
 
@@ -50,11 +54,11 @@ public class PacketReceiver {
 
         } catch( UnknownHostException e )
         {
-            System.err.println ("Can't find host " + senderAddress );
+            System.err.println ("Can't find host: " + e);
         }
         catch( IOException e )
         {
-            System.err.println ("Error - " + e );
+            System.err.println ("Error: " + e );
         }
 
         return messageReceived;
@@ -67,29 +71,25 @@ public class PacketReceiver {
 
         try {
             // Create a datagram packet containing the byte array
-            packet = new DatagramPacket( new byte[512], 512 );
+            packet = new DatagramPacket( new byte[256], 256 );
 
             socket.receive( packet ); // app will listen and wait
 
-            senderInetAddress = packet.getAddress();
-            senderAddress = packet.getAddress().getHostAddress();
-            senderPort = packet.getPort();
-
-            System.out.println ("Object received from: " + senderAddress + ":" + senderPort + "\n");
+            // To fix it, create the objectInputStream when you accept the socket connection. Pass this objectInputStream to your server read method and read Object from that.
 
             ObjectInputStream objectInputStream = new ObjectInputStream(new ByteArrayInputStream(packet.getData()));
             return objectInputStream.readObject();
 
         } catch( UnknownHostException e )
         {
-            System.err.println ("Can't find host " + senderAddress );
+            System.err.println ("Can't find host: " + e);
         }
         catch( IOException e )
         {
-            System.err.println ("Error - " + e );
+            System.err.println ("Error: " + e );
         }
         catch (ClassNotFoundException e) {
-            System.err.println ("Error - " + e );
+            System.err.println ("Error: " + e );
         }
 
         return objectReceived;
