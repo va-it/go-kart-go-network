@@ -74,6 +74,10 @@ public class TCPServer
         return new Object();
     }
 
+    public void sendObject(Object object) {
+        // Write data to the socket
+    }
+
     public void closeConnection() {
         try {
             // Comment out/remove the outputStream and server close statements if server should remain live

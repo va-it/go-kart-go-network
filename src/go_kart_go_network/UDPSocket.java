@@ -29,22 +29,18 @@ public class UDPSocket {
         }
     }
 
-    // used by both client and server
     public String getMessage(boolean server) {
         return packetReceiver.receivePacket(socket, server);
     }
 
-    // used by both client and server
     public void sendMessage(String message, InetAddress recipientAddress, int recipientPort) {
         PacketSender.sendPacket(message, recipientAddress, recipientPort, socket);
     }
 
-    // used by client
     public void sendObject(Object object, InetAddress recipientAddress, int recipientPort) {
         PacketSender.sendPacketWithObject(object, recipientAddress, recipientPort, socket);
     }
 
-    // used by server
     public Object getObject() {
         return packetReceiver.receiveObject(socket);
     }

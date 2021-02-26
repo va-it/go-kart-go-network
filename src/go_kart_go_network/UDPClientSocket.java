@@ -12,15 +12,19 @@ public class UDPClientSocket {
         socket = udpSocket.socket;
     }
 
-    public void sendKart(Object kart) {
-        udpSocket.sendObject(kart, ServerDetails.getAddress(), ServerDetails.port);
-    }
-
     public void sendMessage(String message) {
         PacketSender.sendPacket(message, ServerDetails.getAddress(), ServerDetails.port, socket);
     }
 
     public String getMessage() {
         return udpSocket.getMessage(false);
+    }
+
+    public void sendKart(Object kart) {
+        udpSocket.sendObject(kart, ServerDetails.getAddress(), ServerDetails.port);
+    }
+
+    public Object getKart() {
+        return udpSocket.getObject();
     }
 }
