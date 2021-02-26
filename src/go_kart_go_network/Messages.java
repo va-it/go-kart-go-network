@@ -1,6 +1,9 @@
 package go_kart_go_network;
 
 public class Messages {
+
+    public static final String timeout = "timeout";
+
     public static final String establishConnection = "establish_connection";
     public static final String connectionSuccessful = "connection_successful";
     public static final String getPlayerNumber = "get_player_number";
@@ -13,6 +16,8 @@ public class Messages {
     public static final String stopRace = "stop_race";
     public static final String confirmRaceStopped = "race_stopped";
     public static final String closeConnection = "close_connection";
+
+    public static final String running = "running";
 
 //    public static final String sendingKartInfo = "sending_kart_info";
 //    public static final String readyToReceiveKart = "ready_to_receive_kart";

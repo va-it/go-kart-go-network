@@ -54,6 +54,7 @@ public class PacketSender {
             objectOutput.writeObject(objectToSend);
             objectOutput.close();
 
+
             // Get contents of message as an array of bytes
             byte[] bytesArray = byteArrayOutputStream.toByteArray();
 
@@ -65,6 +66,9 @@ public class PacketSender {
 
             // Set port number to 2000
             packet.setPort( receiverPort );
+
+            // set buffer size
+            socket.setSendBufferSize(socket.getSendBufferSize());
 
             // Send the packet - no guarantee  of delivery
             socket.send(packet);

@@ -21,6 +21,6 @@ public class UDPClientSocket {
     }
 
     public String getMessage() {
-        return udpSocket.getMessage();
+        return udpSocket.getMessage(false);
     }
 }

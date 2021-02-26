@@ -30,8 +30,8 @@ public class UDPSocket {
     }
 
     // used by both client and server
-    public String getMessage() {
-        return packetReceiver.receivePacket(socket);
+    public String getMessage(boolean server) {
+        return packetReceiver.receivePacket(socket, server);
     }
 
     // used by both client and server
