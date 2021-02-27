@@ -27,27 +27,14 @@ public class PacketReceiver {
 
             socket.receive( packet ); // app will listen and wait
 
-            ByteArrayInputStream bytesIn = new ByteArrayInputStream( packet.getData() );
-
-            for (int i=0; i < packet.getLength(); i++)
-            {
-                int data = bytesIn.read();
-
-                if ( data == -1 ) {
-                    break;
-                }
-                else {
-                    // build a string with each character
-                    messageReceived += (char) data;
-                }
-            }
-
-            return messageReceived;
+            // String built as shown in tutorial below
+            // https://docs.oracle.com/javase/tutorial/networking/datagrams/clientServer.html
+            return new String(packet.getData(), 0, packet.getLength());
 
         } catch( UnknownHostException e ) {
             System.err.println ("Can't find host: " + e);
         } catch (SocketTimeoutException e) {
-            messageReceived = Messages.timeout;
+            return Messages.timeout;
         }
         catch( IOException e ) {
             System.err.println ("Error: " + e );
@@ -58,8 +45,6 @@ public class PacketReceiver {
 
 
     public Object receiveObject(DatagramSocket socket) {
-
-        Object objectReceived = null;
 
         try {
             // stop listening for an object after ~33 milliseconds
@@ -89,9 +74,9 @@ public class PacketReceiver {
             System.err.println ("Error: " + e );
         }
         catch (ClassNotFoundException e) {
-            System.err.println ("Error: " + e );
+            System.err.println ("Error class not found: " + e );
         }
 
-        return objectReceived;
+        return null;
     }
 }
