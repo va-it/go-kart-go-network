@@ -19,6 +19,8 @@ public class Messages {
 
     public static final String sendingKartInfo = "sending_kart";
 
+    public static final String opponentQuit = "opponent_quit";
+
     public static final String getOpponentKartInfo(int player) { return "get_kart_" + player; }
     public static final String returnPlayerNumber(int player) { return String.valueOf(player); }
 

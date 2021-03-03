@@ -49,7 +49,9 @@ public class TCPServer
     public String getRequest() {
         try {
             requestFromClient = inputStream.readLine();
-        } catch (IOException e){
+        } catch (SocketException e){
+            requestFromClient = Messages.closeConnection;
+        } catch (IOException e) {
             System.err.println(e);
         }
         return requestFromClient;
