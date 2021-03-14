@@ -44,4 +44,12 @@ public class UDPSocket {
     public Object getObject() {
         return packetReceiver.receiveObject(socket);
     }
+
+    public void closeSocket() {
+        this.socket.close();
+    }
+
+    public boolean socketIsClosed() {
+        return this.socket.isClosed();
+    }
 }

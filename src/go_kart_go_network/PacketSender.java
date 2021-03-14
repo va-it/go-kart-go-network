@@ -77,6 +77,13 @@ public class PacketSender {
         {
             System.err.println ("Can't find host " + receiverAddress );
         }
+        catch (IllegalArgumentException e) {
+            // sometimes the port in the packet seems to be out of range...
+            System.err.println ("Port out of range: " + e );
+        }
+        catch (NullPointerException e) {
+            System.err.println ("Object is null: " + e );
+        }
         catch( IOException e )
         {
             System.err.println ("Error - " + e );

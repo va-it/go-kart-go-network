@@ -82,7 +82,6 @@ public class TCPServer
 
     public void closeConnection() {
         try {
-            // Comment out/remove the outputStream and server close statements if server should remain live
             outputStream.close();
             inputStream.close();
             server.close();

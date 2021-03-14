@@ -16,9 +16,11 @@ public class Messages {
     public static final String stopRace = "stop_race";
     public static final String confirmRaceStopped = "race_stopped";
     public static final String closeConnection = "close_connection";
-
     public static final String sendingKartInfo = "sending_kart";
 
+    public static final String checkOpponentConnection = "check_opponent_connection";
+
+    public static final String opponentConnected = "opponent_connected";
     public static final String opponentQuit = "opponent_quit";
 
     public static final String getOpponentKartInfo(int player) { return "get_kart_" + player; }
