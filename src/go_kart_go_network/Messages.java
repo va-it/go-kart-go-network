@@ -21,7 +21,8 @@ public class Messages {
     public static final String checkOpponentConnection = "check_opponent_connection";
 
     public static final String opponentConnected = "opponent_connected";
-    public static final String opponentQuit = "opponent_quit";
+    public static final String opponentNotConnected = "opponent_not_connected";
+    public static final String error = "error";
 
     public static final String getOpponentKartInfo(int player) { return "get_kart_" + player; }
     public static final String returnPlayerNumber(int player) { return String.valueOf(player); }

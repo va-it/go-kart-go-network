@@ -2,6 +2,7 @@ package go_kart_go_network;
 
 import java.io.*;
 import java.net.Socket;
+import java.net.SocketException;
 import java.net.UnknownHostException;
 
 public class TCPClient
@@ -34,6 +35,8 @@ public class TCPClient
         if (clientSocket != null && outputStream != null && inputStream != null && objectOutput != null) {
             try {
                 outputStream.writeBytes( request + "\n" );
+            } catch (SocketException e) {
+                System.err.println("Cannot reach server: " + e);
             } catch (IOException e) {
                 System.err.println("Send request error: " + e);
             }
@@ -46,7 +49,7 @@ public class TCPClient
         } catch (IOException e){
             System.err.println("Get response error: " + e);
         }
-        return "";
+        return Messages.error;
     }
 
     public void sendObject(Object object) {
