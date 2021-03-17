@@ -14,6 +14,10 @@ public class Messages {
     public static final String wait = "wait";
     public static final String startRace = "start_race";
     public static final String stopRace = "stop_race";
+
+    public static final String requestRaceStatus = "request_race_status";
+    public static final String raceInProgress = "race_in_progress";
+
     public static final String confirmRaceStopped = "race_stopped";
     public static final String closeConnection = "close_connection";
     public static final String sendingKartInfo = "sending_kart";
