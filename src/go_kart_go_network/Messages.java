@@ -28,6 +28,9 @@ public class Messages {
     public static final String opponentNotConnected = "opponent_not_connected";
     public static final String error = "error";
 
+    public static final String opponentWins = "opponent_wins";
+    public static final String gameOver = "game_over";
+
     public static final String getOpponentKartInfo(int player) { return "get_kart_" + player; }
     public static final String returnPlayerNumber(int player) { return String.valueOf(player); }
 
