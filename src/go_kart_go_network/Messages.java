@@ -31,6 +31,11 @@ public class Messages {
     public static final String opponentWins = "opponent_wins";
     public static final String gameOver = "game_over";
 
+    public static final String requestWinnerStatus = "request_winner_status";
+    public static final String winnerStatusSet = "winner_set";
+    public static final String winnerStatusNotSet = "winner_not_set";
+
+
     public static final String getOpponentKartInfo(int player) { return "get_kart_" + player; }
     public static final String returnPlayerNumber(int player) { return String.valueOf(player); }
 
