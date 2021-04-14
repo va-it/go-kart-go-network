@@ -33,13 +33,9 @@ public class PacketSender {
 
             // Send the packet - no guarantee  of delivery
             socket.send(packet);
-        }
-        catch( UnknownHostException e )
-        {
+        } catch( UnknownHostException e ) {
             System.err.println ("Can't find host " + receiverAddress );
-        }
-        catch( IOException e )
-        {
+        } catch( IOException e ) {
             System.err.println ("Error - " + e );
         }
     }
@@ -53,7 +49,6 @@ public class PacketSender {
             ObjectOutput objectOutput = new ObjectOutputStream(byteArrayOutputStream);
             objectOutput.writeObject(objectToSend);
             objectOutput.close();
-
 
             // Get contents of message as an array of bytes
             byte[] bytesArray = byteArrayOutputStream.toByteArray();
@@ -72,20 +67,14 @@ public class PacketSender {
 
             // Send the packet - no guarantee  of delivery
             socket.send(packet);
-        }
-        catch( UnknownHostException e )
-        {
+        } catch( UnknownHostException e ) {
             System.err.println ("Can't find host " + receiverAddress );
-        }
-        catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             // sometimes the port in the packet seems to be out of range...
             System.err.println ("Port out of range: " + e );
-        }
-        catch (NullPointerException e) {
+        } catch (NullPointerException e) {
             System.err.println ("Object is null: " + e );
-        }
-        catch( IOException e )
-        {
+        } catch( IOException e ) {
             System.err.println ("Error - " + e );
         }
     }

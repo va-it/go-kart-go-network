@@ -23,20 +23,11 @@ public class TCPServer
         // Open input and output streams
         try
         {
-            inputStream = new BufferedReader(
-                    new InputStreamReader(
-                            server.getInputStream()
-                    )
-            );
+            inputStream = new BufferedReader(new InputStreamReader(server.getInputStream()));
 
-            outputStream = new DataOutputStream(
-                    server.getOutputStream()
-            );
+            outputStream = new DataOutputStream(server.getOutputStream());
 
-            input = new ObjectInputStream(
-                    server.getInputStream()
-            );
-
+            input = new ObjectInputStream(server.getInputStream());
         }
         catch (IOException e)
         {
@@ -65,6 +56,7 @@ public class TCPServer
         }
     }
 
+    // unused but available in case karts are sent by client via TCP
     public Object getObject() {
         try {
             return input.readObject();
@@ -74,10 +66,6 @@ public class TCPServer
             System.err.println(e);
         }
         return new Object();
-    }
-
-    public void sendObject(Object object) {
-        // Write data to the socket
     }
 
     public void closeConnection() {

@@ -35,8 +35,7 @@ public class PacketReceiver {
             System.err.println ("Can't find host: " + e);
         } catch (SocketTimeoutException e) {
             return Messages.timeout;
-        }
-        catch( IOException e ) {
+        } catch( IOException e ) {
             System.err.println ("Error: " + e );
         }
 
@@ -65,12 +64,10 @@ public class PacketReceiver {
             ObjectInputStream objectInputStream = new ObjectInputStream(new ByteArrayInputStream(packet.getData()));
             return objectInputStream.readObject();
 
-        } catch( UnknownHostException e )
-        {
+        } catch( UnknownHostException e ) {
             System.err.println ("Can't find host: " + e);
         }
-        catch( IOException e )
-        {
+        catch( IOException e ) {
             System.err.println ("Error: " + e );
         }
         catch (ClassNotFoundException e) {

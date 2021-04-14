@@ -52,6 +52,7 @@ public class TCPClient
         return Messages.error;
     }
 
+    // unused, but available in case karts from client need to be sent over TCP
     public void sendObject(Object object) {
         // Write data to the socket
         if (clientSocket != null && outputStream != null && inputStream != null && objectOutput != null) {
@@ -64,6 +65,7 @@ public class TCPClient
         }
     }
 
+    // unused, but available in case connection to the server has to be closed explicitly
     public void closeConnection() {
         try {
             // close the input/output streams and socket
