@@ -68,6 +68,10 @@ public class TCPServer
         return new Object();
     }
 
+    public void sendObject(Object object) {
+        // TODO: implement if kart exchange with client is done over TCP
+    }
+
     public void closeConnection() {
         try {
             outputStream.close();
